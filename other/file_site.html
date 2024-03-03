@@ -1,0 +1,1322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" class="boxed sidebar-left-collapsed">
+<head>
+    <title>Личный кабинет. Обзор</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="https://kitshop.ru/favicon.svg" type="image/svg+xml" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../../assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="../../assets/vendor/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="../../assets/vendor/jquery-ui/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="../../assets/vendor/morris.js/morris.css" />
+    <link rel="stylesheet" href="../../assets/vendor/select2/css/select2.css" />
+    <link rel="stylesheet" href="../../assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/theme.css" />
+    <link href="../../assets/stylesheets/skins/default.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../assets/vendor/jstree/themes/default/style.css" />
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
+    <link href="../../assets/vendor/chartist/chartist.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/theme-custom.css" />
+    <link href="../../Content/Styles/styles.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/vendor/modernizr/modernizr.js"></script>
+    <script src="../../Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/scripts.js" type="text/javascript"></script>
+    
+    <style type="text/css">
+        .block-separator {
+            background-color: Black;
+            height: 1px;
+        }
+
+        .cashregister-block {
+            font-size: 6.0em;
+            padding-bottom: 25px;
+            padding-top: 20px;
+        }
+
+        .success-color {
+            color: #00CC99;
+        }
+
+        .unknown-color {
+            color: #39A1FA;
+        }
+
+        .error-color {
+            color: #FF3300;
+        }
+
+        .checks-block {
+            padding-bottom: 10px;
+            padding-top: 20px;
+        }
+
+        .checks-count {
+            font-size: 4.0em;
+        }
+
+        .checks-sum {
+            padding-top: 15px;
+        }
+
+        .pl5 {
+            padding-left: 5px;
+        }
+
+        .max-height1 {
+            max-height: 182px;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .hide-block {
+            display: none;
+        }
+
+        .show-block {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            bySumButtonClick();
+            setTimeout(showData, 2000);
+        });
+
+        function showData() {
+            $("#content-panel1").trigger("loading-overlay:hide");
+            $("#content-panel1").removeClass("invisible");
+            $("#content-panel3").trigger("loading-overlay:hide");
+            $("#content-panel3").removeClass("invisible");
+
+        }
+
+        function bySumButtonClick() {
+            $("#ByCountButton").removeClass("btn-primary");
+            $("#BySumButton").removeClass("btn-default");
+            $("#BySumButton").addClass("btn-primary");
+            $("#ByCountButton").addClass("btn-default");
+            $("#flotBarSaleCount").removeClass("show-block");
+            $("#flotBarSaleSum").removeClass("hide-block");
+            $("#flotBarSaleCount").addClass("hide-block");
+            $("#flotBarSaleSum").addClass("show-block");
+        }
+
+        function byCountButtonClick() {
+            $("#BySumButton").removeClass("btn-primary");
+            $("#ByCountButton").removeClass("btn-default");
+            $("#BySumButton").addClass("btn-default");
+            $("#ByCountButton").addClass("btn-primary");
+            $("#flotBarSaleCount").removeClass("hide-block");
+            $("#flotBarSaleSum").removeClass("show-block");
+            $("#flotBarSaleCount").addClass("show-block");
+            $("#flotBarSaleSum").addClass("hide-block");
+        }
+    </script>
+
+</head>
+<body>
+    <section class="body">
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <img src="../../content/images/logo.png" alt="Kit Shop" title="Kit Shop" onclick='document.location.href = "/Common/Overview"' id="logo" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="separator" id="left-separator"></span>
+                <ul class="notifications">
+                        <li id="Notification1">
+                            <a href="#" title="Развернуть на весь экран" class="dropdown-toggle notification-icon" data-toggle="dropdown" onclick='TurnonExpandedMode();'>
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </li>
+                    <li id="Notification6">
+                        <a href="/Common/DownloadCenter" title="Центр загрузок" class="dropdown-toggle notification-icon" data-toggle="dropdown" onclick='document.location.href = "/Common/DownloadCenter"'>
+                            <i class="fa fa-download"></i>
+                        </a>
+                    </li>
+                </ul>
+                <span class="separator" id="right-separator"></span>
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+                        <figure class="profile-picture">
+                            <img src="../../Content/Images/Flags/RUS.png" alt="" title="" class="img-circle" id="flag" />
+                        </figure>
+                        <div class="profile-info">
+                            <span class="name">Александр Харченко</span>
+                            <span class="role">
+                                Администратор
+                            </span>
+                        </div>
+                        <i class="fa custom-caret"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled">
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/Common/MyUser" role="menuitem" tabindex="-1">
+                                    <i class="fa fa-user"></i> Мой профиль
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Common/EntranceHistory" role="menuitem" tabindex="-1">
+                                    <i class="fa fa-lock"></i> Мои сессии
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Common/LogOut" role="menuitem" tabindex="-1" onclick="return confirm('Вы действительно хотите выйти?');">
+                                    <i class="fa fa-power-off"></i> Выход
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+            <aside id="sidebar-left" class="sidebar-left">
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        Навигация
+                    </div>
+                    <div onclick="NavMenuClick();" class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
+                <div class="nano">
+                    <div class="nano-content">
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+
+
+
+
+    <li class="nav-expanded nav-active">
+        <a href="/Common/Overview">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span>Обзор</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Monitoring/Monitoring">
+                <i class="fa fa-desktop" aria-hidden="true"></i>
+                <span>Мониторинг</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Routing/Map">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>Карта торговых точек</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                <span>Детальные отчеты</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Reports/Sales">
+Продажи        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Reports/Fillups">
+Загрузки товаров        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Reports/Inventories">
+Инвентаризации        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Reports/Services">
+Обслуживания        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span>Суммарные отчеты</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Продажи        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Statistics/SalesByProducts">
+По товарам        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Statistics/SalesByShops">
+По торговым точкам        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Statistics/SalesByDevices">
+По устройствам        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Доходы и расходы        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Statistics/IncomeExpensesByProducts">
+В разрезе товаров        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Statistics/IncomeExpensesByShops">
+В разрезе торговых точек        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Statistics/Fillups2">
+Загрузки товаров        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                <span>Аналитика</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Продажи        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Analytics/SalesByProducts2">
+По товарам        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Analytics/SalesByShops2">
+По торговым точкам        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Analytics/SalesByDevices2">
+По устройствам        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Analytics/SalesByDays">
+По дням        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-percent" aria-hidden="true"></i>
+                <span>CRM-система</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/CRM/Customers">
+Покупатели        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/CRM/Rules">
+Правила лояльности        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-hdd-o" aria-hidden="true"></i>
+                <span>Ферма онлайн-касс</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/CashregisterFarmOverview">
+Обзор        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/CashregistersMonitor">
+Онлайн-кассы        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Отчеты        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/FiscalChecks">
+Кассовые чеки        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/CorrectionChecks">
+Чеки коррекции        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/FiscalStatistics">
+Сводка за период        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Операции        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/CheckForm">
+Кассовый чек        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/CashregisterFarm/CorrectionCheckForm">
+Чек коррекции        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-rub" aria-hidden="true"></i>
+                <span>Финансы</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Finance/Invoices">
+Счета на оплату        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Финансовые отчеты        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Finance/BalanceDetailing">
+Детализация счета        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Finance/Accounts">
+Выставленные счета        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Finance/TopUpBalance">
+Пополнить баланс        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Finance/Organizations">
+Юридические лица        </a>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                <span>Администрирование</span>
+        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Administration/Shops">
+Торговые точки        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Компании        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Administration/CompaniesList">
+Список        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/CompaniesTree">
+Дерево        </a>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/Devices">
+Устройства        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/Products">
+Товары        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/Users">
+Пользователи        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="nav-parent">
+        <a href="#">
+Внешние системы        </a>
+            <ul class="nav nav-children">
+
+
+
+
+    <li class="">
+        <a href="/Administration/Connection">
+Ферма онлайн-касс        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/OFDSettings">
+Оператор фискальных данных        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/SBPConnection">
+Система быстрых платежей        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/_2CanConnection">
+Эквайринг 2Can        </a>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Administration/YookassaConnection">
+Yookassa        </a>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+            </ul>
+    </li>
+
+
+
+
+
+
+
+    <li class="">
+        <a href="/Common/LogOut" onclick="return confirm(&#39;Вы действительно хотите выйти?&#39;);">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <span>Выход</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>
+                        <a href="/Common/GetOutCompany" class="color-white">
+                            ООО &#171;ЮМВенд-74&#187;
+                        </a>
+                    </h2>
+                    <div class="right-wrapper pull-right">
+                                <ol class="breadcrumbs">
+                                    <li>
+                                        <span>Главная</span>
+                                    </li>
+                                    <li>
+                                        <span>Обзор</span>
+                                    </li>
+                                </ol>
+
+                    </div>
+                </header>
+                <!-- start: page -->
+                <div class="row text-dark">
+                    <input type="hidden" value="Скрыть рамки" id="TableHideBorderHidden" />
+                    <input type="hidden" value="Убрать полоски" id="TableHideStripedHidden" />
+                    <input type="hidden" value="Показать рамки" id="TableShowBorderHidden" />
+                    <input type="hidden" value="Показать полоски" id="TableShowStripedHidden" />
+                    <input type="hidden" value="Подождите..." id="TableProcessingHidden" />
+                    <input type="hidden" value="Показать _MENU_ записей" id="TableLengthMenuHidden" />
+                    <input type="hidden" value="Записи с _START_ до _END_ из _TOTAL_ записей" id="TableInfoHidden" />
+                    <input type="hidden" value="Записи с 0 до 0 из 0 записей" id="TableInfoEmptyHidden" />
+                    <input type="hidden" value="(отфильтровано из _MAX_ записей)" id="TableInfoFilteredHidden" />
+                    <input type="hidden" value="Загрузка записей..." id="TableLoadingRecordsHidden" />
+                    <input type="hidden" value="Записи отсутствуют." id="TableZeroRecordsHidden" />
+                    <input type="hidden" value="В таблице отсутствуют данные" id="TableEmptyTableHidden" />
+                    <input type="hidden" value="Первая" id="TableFirstHidden" />
+                    <input type="hidden" value="Предыдущая" id="TablePreviousHidden" />
+                    <input type="hidden" value="Следующая" id="TableNextHidden" />
+                    <input type="hidden" value="Последняя" id="TableLastHidden" />
+                    <input type="hidden" value="активировать для сортировки столбца по возрастанию" id="TableSortAscendingHidden" />
+                    <input type="hidden" value="активировать для сортировки столбца по убыванию" id="TableSortDescendingHidden" />
+                    <input type="hidden" value="Фильтр" id="TableFilterHidden" />
+                    <input type="hidden" value="Добавить" id="TableAddHidden" />
+                    <input type="hidden" value="Экспорт" id="TableExportHidden" />
+
+                    
+
+
+
+
+<div class="row text-dark">
+    <div class="col-md-6">
+        <h3 class="mt-none">Торговые точки</h3>
+    </div>
+</div>
+<div class="row text-dark">
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">
+                    Рабочие
+                </h2>
+            </header>
+            <div class="panel-body text-center">
+                <div class="cashregister-block success-color">
+                    3
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">
+                    Есть ошибки
+                </h2>
+            </header>
+            <div class="panel-body text-center">
+                <div class="cashregister-block unknown-color">
+                    0
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">
+                    Не работают
+                </h2>
+            </header>
+            <div class="panel-body text-center">
+                <div class="cashregister-block error-color">
+                    0
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="block-separator"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Динамика продаж за последние 10 дней</h2>
+                <p class="panel-subtitle">Данные по продажам с 23.02.2024 по 03.03.2024</p>
+                <button class="btn btn-primary btn-fix-width mt-xs" id="BySumButton" onclick="bySumButtonClick()">&nbsp;&nbsp;&nbsp;&nbsp;По сумме&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <button class="btn btn-default btn-fix-width mt-xs" id="ByCountButton" onclick="byCountButtonClick()">По количеству</button>
+            </header>
+            <div class="panel-body invisible" id="content-panel1" data-loading-overlay data-loading-overlay-options='{ "startShowing": true }'>
+                <div class="chart chart-md max-height1" id="flotBarSaleSum">
+                </div>
+                <div class="chart chart-md max-height1" id="flotBarSaleCount">
+                </div>
+                <script type="text/javascript">
+                    var flotBarSaleSumData =
+                    [
+["Пт<br/>23.02", 1305.00],["<span style='color:Red;'>Сб<br/>24.02</span>", 1630.00],["<span style='color:Red;'>Вс<br/>25.02</span>", 720.00],["Пн<br/>26.02", 465.00],["Вт<br/>27.02", 1465.00],["Ср<br/>28.02", 1620.00],["Чт<br/>29.02", 1010.00],["Пт<br/>01.03", 1230.00],["<span style='color:Red;'>Сб<br/>02.03</span>", 920.00],["<span style='color:Red;'>Вс<br/>03.03</span>", 270.00],                    ];
+
+                    var flotBarSaleCountData =
+                    [
+["Пт<br/>23.02", 14],["<span style='color:Red;'>Сб<br/>24.02</span>", 12],["<span style='color:Red;'>Вс<br/>25.02</span>", 7],["Пн<br/>26.02", 4],["Вт<br/>27.02", 10],["Ср<br/>28.02", 14],["Чт<br/>29.02", 10],["Пт<br/>01.03", 12],["<span style='color:Red;'>Сб<br/>02.03</span>", 7],["<span style='color:Red;'>Вс<br/>03.03</span>", 3],                    ];
+                </script>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Сводка</h2>
+            </header>
+            <div class="panel-body invisible" id="content-panel3" data-loading-overlay data-loading-overlay-options='{ "startShowing": true }'>
+                <div class="line-container">
+                    <div class="left-label">
+                        Выручка, сегодня
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            270.00 р.
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Выручка, вчера
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            920.00 р.
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Продаж, сегодня/вчера
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            3 / 7
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Денег в торг. точках
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0.00 р.
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Сдача в торг. точках
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0.00 р.
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Инкассировано, сегодня
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0 р.
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Инкассировано, вчера
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0 р.
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Обслужено, сегодня
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Обслужено, вчера
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Загрузок товаров, сегодня
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0
+                        </strong>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="left-label">
+                        Загрузок товаров, вчера
+                    </div>
+                    <div class="right-label">
+                        <strong>
+                            0
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div>
+        <div id="modalHeaderColorWarning" class="modal-block modal-header-color modal-block-warning mfp-hide">
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Внимание!</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="modal-wrapper">
+                        <div class="modal-icon">
+                            <i class="fa fa-warning"></i>
+                        </div>
+                        <div class="modal-text">
+                            <h4>Неоплаченные счета</h4>
+                            <p>
+                                Уважаемый партнер! У Вас имеются неоплаченные в срок счета за использование данного сервиса.
+                            </p>
+                            <p>
+                                Пожалуйста, оплатите их, иначе Ваш личный кабинет будет автоматически заблокирован.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-warning modal-dismiss">OK</button>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </div>
+        <div id="modalHeaderColorDanger" class="modal-block modal-header-color modal-block-danger mfp-hide">
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Внимание!</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="modal-wrapper">
+                        <div class="modal-icon">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <div class="modal-text">
+                            <h4>Неоплаченные счета</h4>
+                            <p>
+                                Уважаемый партнер! У Вас имеются неоплаченные в основной и дополнительный срок счета за использование данного сервиса.
+                            </p>
+                            <p>
+                                <strong>Выполните оплату </strong>или Ваш личный кабинет будет автоматически <strong>заблокирован </strong>в течение 3-х дней!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-danger modal-dismiss">OK</button>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </div>
+        <a class="mb-xs mt-xs mr-xs modal-basic btn btn-danger" href="#modalHeaderColorDanger" id="DangerBtnClick" style="display: none;"></a>
+        <a class="mb-xs mt-xs mr-xs modal-basic btn btn-warning" href="#modalHeaderColorWarning" id="WarningBtnClick" style="display: none;"></a>
+    </div>
+</div>
+                </div>
+                <!-- end: page -->
+            </section>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="../../assets/vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="../../assets/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-placeholder/jquery-placeholder.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqueryui-touch-punch/jqueryui-touch-punch.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-appear/jquery-appear.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/flot.tooltip/flot.tooltip.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/flot/jquery.flot.categories.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-sparkline/jquery-sparkline.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/raphael/raphael.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/morris.js/morris.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/gauge/gauge.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/snap.svg/snap.svg.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/liquid-meter/liquid.meter.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/jquery.vmap.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/data/jquery.vmap.sampledata.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/layouts/examples.header.menu.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/dashboard/examples.dashboard.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jstree/jstree.js"></script>
+    <script src="../../assets/vendor/chartist/chartist.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/javascripts/ui-elements/examples.treeview.js"></script>
+    <script src="../../assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js" type="text/javascript"></script>
+    <script src="../../assets/javascripts/ui-elements/examples.charts.js" type="text/javascript"></script>
+    <script src="../../assets/javascripts/ui-elements/examples.widgets.js" type="text/javascript"></script>
+    <script src="../../assets/javascripts/ui-elements/examples.modals.js" type="text/javascript"></script>
+    <script src="../../assets/vendor/bootstrap-timepicker/bootstrap-timepicker.js" type="text/javascript"></script>
+    <script src="../../assets/javascripts/forms/examples.advanced.form.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/javascripts/tables/examples.datatables.default.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/tables/examples.datatables.row.with.details.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/tables/examples.datatables.tabletools.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/select2/js/select2.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="../../assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/theme.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/theme.custom.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/theme.init.js"></script>
+    <script src="../../assets/javascripts/ui-elements/examples.lightbox.js"></script>
+</body>
+</html>
