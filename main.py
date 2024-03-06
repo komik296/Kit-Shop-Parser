@@ -58,6 +58,14 @@ if __name__ == '__main__':
                 login, password = AUTHORIZATION[affiliate]
                 authorizetion(login, password, affiliate)
 
+            except ValueError as err:
+                if "too many values to unpack" not in str(err):
+                    raise ValueError(err)
+
+                print(err)
+                login, password = AUTHORIZATION[affiliate]
+                authorizetion(login, password, affiliate)
+
         print("Цикл закончен")
         time.sleep(110)
 
